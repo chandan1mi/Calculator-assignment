@@ -24,6 +24,12 @@ body {
     font-family: 'digital', 'Courier New', Courier, monospace;
 }
 
+p {
+    text-align: center;
+    padding-top: 0;
+    margin-top: 0;
+}
+
 .screen {
     display: flex;
     align-items: center;
@@ -35,12 +41,6 @@ body {
     border-radius: 3px;
     color: #EDE6DB;
     font-size: 47px;
-}
-
-p {
-    text-align: center;
-    padding-top: 0;
-    margin-top: 0;
 }
 
 hr {
