@@ -30,6 +30,11 @@ p {
     margin-top: 0;
 }
 
+p.operatorClass {
+    height: 12px;
+    font-size: 12px;
+}
+
 .screen {
     display: flex;
     align-items: center;
@@ -41,6 +46,7 @@ p {
     border-radius: 3px;
     color: #EDE6DB;
     font-size: 47px;
+    overflow: hidden;
 }
 
 hr {
