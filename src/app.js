@@ -112,7 +112,6 @@ function operate(button) {
 
     let theArray = inputArray.join('');
     inputDisplay.textContent = theArray;
-    console.log('typeof:' + theArray.slice(-1))
 
     if (button.id.match('operator') &&
             (checkOperatorsArray[checkOperatorsArray.length - 2] == '+' ||
