@@ -45,8 +45,7 @@ p.operatorClass {
     border: none;
     border-radius: 3px;
     color: #EDE6DB;
-    font-size: 47px;
-    overflow: hidden;
+    font-size: 3.12em;
 }
 
 hr {
