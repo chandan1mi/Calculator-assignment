@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'digital';
+    src: url(../font/digital.ttf) format(truetype);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    color: #EDE6DB;
+    background-color: #1D5C63;
+}
+
+.calculator {
+    width: 322px;
+    border: 1px solid #EDE6DB;
+    border-radius: 3px;
+    font-family: 'digital', 'Courier New', Courier, monospace;
+}
+
+p {
+    text-align: center;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+p.operatorClass {
+    height: 12px;
+    font-size: 12px;
+}
+
+.screen {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 0;
+    padding: 0 12px;
+    height: 100px;
+    border: none;
+    border-radius: 3px;
+    color: #EDE6DB;
+    font-size: 3.12em;
+}
+
+hr {
+    height: 1px;
+    border: none;
+    margin: 0;
+    background-color: #EDE6DB;
+}
+
+.btn {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+button{
+    height: 80px;
+    width: 80px;
+    border: none;
+    background-color: #1D5C63;
+    color: #EDE6DB;
+    border-radius: 3px;
+    transition: 0.3s ease-in-out;
+    font-family: 'digital', 'Courier New', Courier, monospace;
+    font-size: 32px;
+}
+
+button:hover {
+    background-color: #003545;
+}
+
+#clear, #equals {
+    width: 160px;
+    background-color: #003545;
+    transition: 0.3s ease-in-out;
+}
+
+#clear:hover, #equals:hover {
+    background-color: #1D5C63;
+    border: 0.7px solid #EDE6DB;
+}
