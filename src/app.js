@@ -166,17 +166,67 @@ buttons.forEach(button => button.addEventListener('click', () => operate(button)
 // clave para el keyboard support
 document.addEventListener('keydown', (event) => {
     let name = event.key;
-
-    if (name === 'Backspace') {
+    let pressButton;
+    if (name === '9') {
+        pressButton = document.querySelector('.nine');
+        operate(pressButton);
+    } else  if (name === '8') {
+        pressButton = document.querySelector('.eight');
+        operate(pressButton);
+    } else if (name === '7') {
+        pressButton = document.querySelector('.seven');
+        operate(pressButton);
+    } else if (name === '6') {
+        pressButton = document.querySelector('.six');
+        operate(pressButton);
+    } else  if (name === '5') {
+        pressButton = document.querySelector('.five');
+        operate(pressButton);
+    } else if (name === '4') {
+        pressButton = document.querySelector('.four');
+        operate(pressButton);
+    } else if (name === '3') {
+        pressButton = document.querySelector('.three');
+        operate(pressButton);
+    } else  if (name === '2') {
+        pressButton = document.querySelector('.two');
+        operate(pressButton);
+    } else if (name === '1') {
+        pressButton = document.querySelector('.one');
+        operate(pressButton);
+    } else if (name === '0') {
+        pressButton = document.querySelector('.cero');
+        operate(pressButton);
+    } else if (name === '.') {
+        pressButton = document.querySelector('.dot');
+        operate(pressButton);
+    } else if (name === '+') {
+        pressButton = document.querySelector('.plus');
+        operate(pressButton);
+    } else if (name === '-') {
+        pressButton = document.querySelector('.minus');
+        operate(pressButton);
+    } else if (name === '*') {
+        pressButton = document.querySelector('.multiply');
+        operate(pressButton);
+    } else if (name === '/') {
+        pressButton = document.querySelector('.divide');
+        operate(pressButton);
+    } else if (name === 'Enter') {
+        pressButton = document.querySelector('#equals');
+        document.body.style.backgroundColor = `${rndColor[Math.floor(Math.random() * 2)]}`;
+        operate(pressButton);
+    } else if (name === 'Backspace') {
         clearButton();
     } else {
-        operatorType.textContent = `Tab + Enter or Shift+Tab + Enter to select a button.
-                                    Delete to clear the screen.`
-    }
-    //alert(`Key pressed: ${name}`);
-  }, false);
+        operatorType.textContent = 'Please type a valid operation in your keyboard'
+    } //alert(`key pressed: ${name}`)
+}, false);
+
+let rndColor = ['rgb(0, 53, 69)', 'rgb(29, 92, 99)']
 
 /*
+Para checar
     console.log('num1:' + num1);
     console.log('num2:' + num2);
     console.log('input array:' + inputArray);
