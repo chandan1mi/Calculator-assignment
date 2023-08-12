@@ -33,6 +33,7 @@ p {
 p.operatorClass {
     height: 12px;
     font-size: 12px;
+    padding: 0 21px;
 }
 
 .screen {

@@ -1,11 +1,11 @@
 const buttons = document.querySelectorAll('button');
 const inputDisplay = document.querySelector('.screen');
-const operatorType = document.querySelector('.operatorClass');
+const operatorType = document.querySelector('.operatorClass'); // por si se pone info
 const clearBtn = document.querySelector('#clear');
 const deleteBtn = document.querySelector('#erase');
 const resultBtn = document.querySelector('#equals');
 const dot = document.querySelector('.dot');
-// important variables
+// ¡¡¡variables importantes!!!
 let operator1 = '';
 let operator2 = '';
 let inputArray = [];
@@ -19,6 +19,7 @@ function defaultValues() {
     operator1 = '';
     operator2 = '';
     inputArray = [];
+    checkOperatorsArray = [];
     num1 = '';
     num2 = '';
     result = '';
@@ -64,7 +65,7 @@ const multiply = (a, b) => {
 }
 
 const divide = (a, b) => {
-    if (b === '0') {
+    if (Math.abs(b) === 0) {
         operatorType.textContent = 'You can\'t divide by 0 ... press AC button.';
         clearButton();
     } else {
@@ -80,11 +81,12 @@ const divide = (a, b) => {
     }
 }
 
-// ac button
+// botones de ac y borrar un dígito
 function clearButton() {
     operator1 = '';
     operator2 = '';
     inputArray = [];
+    checkOperatorsArray = [];
     num1 = '';
     num2 = '';
     result = '';
@@ -92,7 +94,6 @@ function clearButton() {
     inputDisplay.textContent = '';
     buttons.disabled = false;
 }
-//delete button
 function eraseButton() {
     inputArray.pop();
     inputArray.pop();
@@ -101,6 +102,7 @@ function eraseButton() {
 function operate(button) {
     let forNum = 0;
     let value = button.textContent;
+
     inputArray.push(value);
     checkOperatorsArray.push(value);
 
@@ -112,7 +114,6 @@ function operate(button) {
 
     let theArray = inputArray.join('');
     inputDisplay.textContent = theArray;
-    console.log('typeof:' + theArray.slice(-1))
 
     if (button.id.match('operator') &&
             (checkOperatorsArray[checkOperatorsArray.length - 2] == '+' ||
@@ -162,6 +163,19 @@ function operate(button) {
 
 buttons.forEach(button => button.addEventListener('click', () => operate(button)));
 
+// clave para el keyboard support
+document.addEventListener('keydown', (event) => {
+    let name = event.key;
+
+    if (name === 'Backspace') {
+        clearButton();
+    } else {
+        operatorType.textContent = `Tab + Enter or Shift+Tab + Enter to select a button.
+                                    Delete to clear the screen.`
+    }
+    //alert(`Key pressed: ${name}`);
+  }, false);
+
 /*
     console.log('num1:' + num1);
     console.log('num2:' + num2);
@@ -171,11 +185,3 @@ buttons.forEach(button => button.addEventListener('click', () => operate(button)
     console.log('the array:' + theArray);
     console.log('operator array:' +  checkOperatorsArray);
 */
-
-// clave para el keyboard support
-document.addEventListener('keyup', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    alert(`Key pressed ${name} \r\n Key code value: ${code}`);
-  }, false);
