@@ -33,15 +33,18 @@ p {
 p.operatorClass {
     height: 12px;
     font-size: 12px;
+    padding: 0 21px;
 }
 
-.screen {
+p.screen {
     display: flex;
     align-items: center;
     justify-content: end;
+    flex-wrap: wrap;
+    overflow: scroll;
     margin-bottom: 0;
     padding: 0 12px;
-    height: 100px;
+    min-height: 100px;
     border: none;
     border-radius: 3px;
     color: #EDE6DB;

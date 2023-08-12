@@ -1,11 +1,11 @@
 const buttons = document.querySelectorAll('button');
 const inputDisplay = document.querySelector('.screen');
-const operatorType = document.querySelector('.operatorClass');
+const operatorType = document.querySelector('.operatorClass'); // por si se pone info
 const clearBtn = document.querySelector('#clear');
 const deleteBtn = document.querySelector('#erase');
 const resultBtn = document.querySelector('#equals');
 const dot = document.querySelector('.dot');
-// important variables
+// ¡¡¡variables importantes!!!
 let operator1 = '';
 let operator2 = '';
 let inputArray = [];
@@ -19,6 +19,7 @@ function defaultValues() {
     operator1 = '';
     operator2 = '';
     inputArray = [];
+    checkOperatorsArray = [];
     num1 = '';
     num2 = '';
     result = '';
@@ -64,7 +65,7 @@ const multiply = (a, b) => {
 }
 
 const divide = (a, b) => {
-    if (b === '0') {
+    if (Math.abs(b) === 0) {
         operatorType.textContent = 'You can\'t divide by 0 ... press AC button.';
         clearButton();
     } else {
@@ -80,11 +81,12 @@ const divide = (a, b) => {
     }
 }
 
-// ac button
+// botones de ac y borrar un dígito
 function clearButton() {
     operator1 = '';
     operator2 = '';
     inputArray = [];
+    checkOperatorsArray = [];
     num1 = '';
     num2 = '';
     result = '';
@@ -92,7 +94,6 @@ function clearButton() {
     inputDisplay.textContent = '';
     buttons.disabled = false;
 }
-//delete button
 function eraseButton() {
     inputArray.pop();
     inputArray.pop();
@@ -101,6 +102,7 @@ function eraseButton() {
 function operate(button) {
     let forNum = 0;
     let value = button.textContent;
+
     inputArray.push(value);
     checkOperatorsArray.push(value);
 
@@ -161,18 +163,70 @@ function operate(button) {
 
 buttons.forEach(button => button.addEventListener('click', () => operate(button)));
 
+// keyboard support
+document.addEventListener('keydown', (event) => {
+    let name = event.key;
+    let pressButton;
+    if (name === '9') {
+        pressButton = document.querySelector('.nine');
+        operate(pressButton);
+    } else  if (name === '8') {
+        pressButton = document.querySelector('.eight');
+        operate(pressButton);
+    } else if (name === '7') {
+        pressButton = document.querySelector('.seven');
+        operate(pressButton);
+    } else if (name === '6') {
+        pressButton = document.querySelector('.six');
+        operate(pressButton);
+    } else  if (name === '5') {
+        pressButton = document.querySelector('.five');
+        operate(pressButton);
+    } else if (name === '4') {
+        pressButton = document.querySelector('.four');
+        operate(pressButton);
+    } else if (name === '3') {
+        pressButton = document.querySelector('.three');
+        operate(pressButton);
+    } else  if (name === '2') {
+        pressButton = document.querySelector('.two');
+        operate(pressButton);
+    } else if (name === '1') {
+        pressButton = document.querySelector('.one');
+        operate(pressButton);
+    } else if (name === '0') {
+        pressButton = document.querySelector('.cero');
+        operate(pressButton);
+    } else if (name === '.') {
+        pressButton = document.querySelector('.dot');
+        operate(pressButton);
+    } else if (name === '+') {
+        pressButton = document.querySelector('.plus');
+        operate(pressButton);
+    } else if (name === '-') {
+        pressButton = document.querySelector('.minus');
+        operate(pressButton);
+    } else if (name === '*') {
+        pressButton = document.querySelector('.multiply');
+        operate(pressButton);
+    } else if (name === '/') {
+        pressButton = document.querySelector('.divide');
+        operate(pressButton);
+    } else if (name === 'Enter') {
+        pressButton = document.querySelector('#equals');
+        document.body.style.backgroundColor = `${rndColor[Math.floor(Math.random() * 2)]}`;
+        operate(pressButton);
+    } else if (name === 'Backspace') {
+        clearButton();
+    } else {
+        operatorType.textContent = 'Please type a valid operation in your keyboard'
+    } //alert(`key pressed: ${name}`)
+}, false);
+
+let rndColor = ['rgb(0, 53, 69)', 'rgb(29, 92, 99)']
+
 /*
-clue for keyboard support
-document.addEventListener('keyup', (event) => {
-    var name = event.key;
-    var code = event.code;
-    // Alert the key name and key code on keydown
-    alert(`Key pressed ${name} \r\n Key code value: ${code}`);
-  }, false);
-
-
-
-if needed add at the end of operate()
+Para checar
     console.log('num1:' + num1);
     console.log('num2:' + num2);
     console.log('input array:' + inputArray);
