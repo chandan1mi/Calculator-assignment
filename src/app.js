@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll('button');
 const inputDisplay = document.querySelector('.screen');
-const operatorType = document.querySelector('.operatorClass'); // por si se pone info
+const operatorType = document.querySelector('.operatorClass');
 const clearBtn = document.querySelector('#clear');
 const deleteBtn = document.querySelector('#erase');
 const resultBtn = document.querySelector('#equals');
